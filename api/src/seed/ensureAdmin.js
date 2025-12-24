@@ -8,7 +8,7 @@ export const ensureAdminExists = async () => {
   if (mongoose.connection.readyState === 0) {
     await connectDB(env.mongoUri);
   }
-  const existing = await User.findOne({ email: 'admin' });
+  const existing = await User.findOne({ email: 'admin@admin.com' });
   if (existing) {
     if (existing.role !== 'admin') {
       existing.role = 'admin';
